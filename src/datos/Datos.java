@@ -1,5 +1,6 @@
 package datos;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.mysql.jdbc.Statement;
@@ -32,18 +33,28 @@ public class Datos implements I_datos {
 		
 	}@Override
     public void bajaPeliculas(int id) throws DAOException {
+		
         Peliculas peli = findById(id);
+        log.info("----------------------------La ID la ha encontrado");
          if (peli == null) {
+        	 log.info("----------------------------La ID que quieres eliminar no existe");
              throw new DAOException("Pelicula id: " + id + " no existe para eliminarla.");
          }
          try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
+        	 log.info("-------------------------La conexion se ha realizado correctamente");
              String query = "DELETE FROM PELICULAS WHERE ID=" + id;
+        	 log.info("-------------------------Query Creada");
              if (stmt.executeUpdate(query) != 1) {
-                 throw new DAOException("Error deleting employee");
+
+                 throw new DAOException("------------------Abre los ojos¡¡¡¡");
              }
          } catch (SQLException se) {
              //se.printStackTrace();
-             throw new DAOException("Error deleting película in DAO", se);
+ 			se.printStackTrace();
+ 			System.out.println("---"+se.getSQLState());
+ 			System.out.println("---"+se.getErrorCode());
+ 			System.out.println("---"+se.getMessage());
+             throw new DAOException("Error borrando película in DAO", se);
          }
      }
  
@@ -51,15 +62,20 @@ public class Datos implements I_datos {
 
      public Peliculas findById(int id) throws DAOException {
          try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
-             String query = "SELECT * FROM PELICULAS WHERE ID=" + id;
+             String query = "SELECT * FROM PELICULAS WHERE IDPELICULAS=" + id;
+ 		  	log.info("-----"+query);
              ResultSet rs = stmt.executeQuery(query);
+  		  	log.info("-----"+rs);
              if (!rs.next()) {
+
                  return null;
              }
-           //rs.get
-             return (new Peliculas(rs.getInt("NOMBRE"), rs.getString("ANIO ESTRENO"), rs.getString("CATEGORÍA")));
+             return (new Peliculas(rs.getInt("ID PELICULA"), rs.getString("NOMBRE"), rs.getInt("ANIO ESTRENO"), rs.getInt("CATEGORÍA")));
          } catch (SQLException se) {
-             //se.printStackTrace();
+  			se.printStackTrace();
+  			System.out.println("---"+se.getSQLState());
+  			System.out.println("---"+se.getErrorCode());
+  			System.out.println("---"+se.getMessage());
              throw new DAOException("Error finding employee in DAO", se);
          }
      }
