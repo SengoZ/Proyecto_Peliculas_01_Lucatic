@@ -5,12 +5,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
+
 public class conexion_prueba {
 	private static Connection con = null;
 	private static String driverClassName = "com.mysql.jdbc.Driver";
 	private static String driverUrl = "jdbc:mysql://localhost:3306/project_peli";
 	private static String user = "root";
 	private static String pass = "root";
+	
 
 	public static Connection Conecta_BBDD() {
 		try {
