@@ -9,7 +9,7 @@ public class ConexionBBDD {
 	
 	private static Connection con = null;
 	private static String driverClassName = "com.mysql.jdbc.Driver";
-	private static String driverUrl = "jdbc:mysql://localhost/prueba_bbdd";
+	private static String driverUrl = "jdbc:mysql://localhost/prueba_proyecto";
 	private static String user = "root";
 	private static String pass = "root";
 
