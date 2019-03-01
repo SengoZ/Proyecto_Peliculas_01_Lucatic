@@ -2,9 +2,13 @@ package control;
 import gui.MostrarMenu;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import excepciones.DAOException;
+import model.Peliculas;
+import servicios.Servicios;
 public class Arranque {
 	
-	public void menu() {
+	public void menu() throws DAOException {
 	@SuppressWarnings("resource")
 	Scanner sn = new Scanner(System.in);
 	boolean salir = false;
@@ -21,6 +25,9 @@ public class Arranque {
         	switch (opcion) {
             case 1:
                 System.out.println("Ha seleccionado ALTA NUEVA PELÍCULA");
+                Peliculas peli = new Peliculas();
+                peli.crearPelicula();
+                new Servicios().altaPeliculas(peli);
                 break;
             case 2:
                 salir = true;
