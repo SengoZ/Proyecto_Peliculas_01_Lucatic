@@ -11,11 +11,6 @@ public class ConexionBBDD {
 	private static String user = "root";
 	private static String pass = "root";
 
-	
-	/**
-	 * 
-	 * @return con
-	 */
 	public static Connection Conecta_BBDD() {
 		try {
 			Class.forName(driverClassName);
