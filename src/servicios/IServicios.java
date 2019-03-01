@@ -1,6 +1,6 @@
 package servicios;
-
-public class IServicios {
-
-	//InterfazCreada
+import model.Peliculas;
+public interface IServicios {
+	
+	public void altaPeliculas(Peliculas peli);//throws Excepcion 
 }
