@@ -3,7 +3,7 @@ package control;
 import gui.MostrarMenu;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import datos.Datos;
+
 import excepciones.FueraDeRango;
 import excepciones.LecturaException;
 
@@ -44,13 +44,9 @@ public class Arranque {
 					break;
 				case 3:
 					System.out.println("Ha seleccionado ALTA USUARIO PELÍCULA");
-					peli.crearPelicula();
-					new Servicios().altaPeliculas(peli);
 					break;
 				case 4:
 					System.out.println("Ha seleccionado BAJA USUARIO");
-					peli.crearPelicula();
-					new Servicios().altaPeliculas(peli);
 					break;
 				case 5:
 					salir = true;
