@@ -10,6 +10,7 @@ public class ConexionBBDD {
 	private static String driverUrl = "jdbc:mysql://localhost/project_peli";
 	private static String user = "root";
 	private static String pass = "root";
+
 	
 	/**
 	 * 
