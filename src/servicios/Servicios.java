@@ -1,5 +1,7 @@
 package servicios;
 
-public class Servicios {
+import datos.Datos;
 
+public class Servicios implements IServicios{
+	
 }
