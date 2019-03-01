@@ -1,5 +1,13 @@
 package datos;
 
-public class Datos {
+import model.Peliculas;
+
+public class Datos implements I_datos {
+
+	@Override
+	public void altaPeliculas(Peliculas peli) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
