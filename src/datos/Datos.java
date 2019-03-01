@@ -17,6 +17,7 @@ public class Datos implements I_datos {
 	public void altaPeliculas(Peliculas peli) throws DAOException {//es necesario actualizar este metodo.
 		try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()){
 			String query = "INSERT INTO PELICULAS VALUES ("+ peli.getIdPelicula()+"'" + peli.getNombre()+"' ,"+"'"+peli.getAnioEstreno()+ " ,"+"'"+peli.getCategoria()+"')";
+			//da un error
 			if(stmt.executeUpdate(query) != 1) {
 				throw new DAOException("Error añadiendo pelicula");
 				//log.error("Ha ocurrido un error al incluir una película");
