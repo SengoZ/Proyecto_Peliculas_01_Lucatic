@@ -43,7 +43,7 @@ public class Categoria {
 	public Categoria() {
 		super();
 	}
-	public void crearCategoria() {
+	
 		
 	}
 }

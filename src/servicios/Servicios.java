@@ -10,7 +10,9 @@ public class Servicios implements IServicios{
 	public void altaPeliculas(Peliculas peli) throws DAOException {
 		new Datos().altaPeliculas(peli);
 	}
-
+	public void bajaPeliculas(int id) throws DAOException {
+		new Datos().bajaPeliculas(id);
+	}
 
 	
 }

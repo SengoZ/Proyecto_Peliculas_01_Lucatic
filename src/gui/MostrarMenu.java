@@ -6,7 +6,10 @@ public class MostrarMenu {
 		System.out.println("    ····GESTIÓN MOVIEFLIX····" + "\n");
         System.out.println("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
         System.out.println("\\\\" + "   1. Alta nueva película" + "    \\\\");
-        System.out.println("\\\\" + "   2. Salir" + "                  \\\\");
+        System.out.println("\\\\" + "   2. Baja película" + "          \\\\");
+        System.out.println("\\\\" + "   3. Alta nuevo usuario" + "     \\\\");
+        System.out.println("\\\\" + "   4. Baja usuario" + "           \\\\");
+        System.out.println("\\\\" + "   5. Salir" + "                  \\\\");
         System.out.println("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
 	}
 
