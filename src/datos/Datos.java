@@ -29,5 +29,42 @@ public class Datos implements I_datos {
 			System.out.println("---"+se.getMessage());
 			throw new DAOException(" Error añadiendo pelicula en DAO");
 		}
-	}
+		
+	}@Override
+    public void bajaPeliculas(int id) throws DAOException {
+        Peliculas peli = findById(id);
+         if (peli == null) {
+             throw new DAOException("Pelicula id: " + id + " no existe para eliminarla.");
+         }
+         try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
+             String query = "DELETE FROM PELICULAS WHERE ID=" + id;
+             if (stmt.executeUpdate(query) != 1) {
+                 throw new DAOException("Error deleting employee");
+             }
+         } catch (SQLException se) {
+             //se.printStackTrace();
+             throw new DAOException("Error deleting película in DAO", se);
+         }
+     }
+ 
+ // Find an Employee record using this ID
+
+     public Peliculas findById(int id) throws DAOException {
+         try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
+             String query = "SELECT * FROM PELICULAS WHERE ID=" + id;
+             ResultSet rs = stmt.executeQuery(query);
+             if (!rs.next()) {
+                 return null;
+             }
+           //rs.get
+             return (new Peliculas(rs.getInt("NOMBRE"), rs.getString("ANIO ESTRENO"), rs.getString("CATEGORÍA")));
+         } catch (SQLException se) {
+             //se.printStackTrace();
+             throw new DAOException("Error finding employee in DAO", se);
+         }
+     }
+
+     // Return an array of all of the Employee records
+     // We are using a collection List object to store the results
+     // This makes it easier to just add to the collection
 }
