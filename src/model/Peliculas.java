@@ -82,4 +82,7 @@ public class Peliculas {
 	            e.getStackTrace();
 	        }
 	}
+	public void imprimirPelicula() {
+		System.out.println(this.toString());
+	}
 }
