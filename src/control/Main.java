@@ -10,9 +10,7 @@ public class Main {
 
 	public static void main(String[] args) throws DAOException {
 		I_datos prueba = new Datos();
-		Categoria drama = new Categoria("animacion");
-		Peliculas peli = new Peliculas(1,"Los vengadores",2018,drama);
+		Peliculas peli = new Peliculas(1,"Los vengadores",2018,1);
 		prueba.altaPeliculas(peli);
-}
-
+	}
 }

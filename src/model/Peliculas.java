@@ -18,7 +18,7 @@ public class Peliculas {
 	private int IdPelicula;
 	private String nombre;
 	private int anioEstreno;
-	private Categoria categoria;
+	private int categoria;
 	
 
 	// Getter y Setter
@@ -40,10 +40,10 @@ public class Peliculas {
 	public void setAnioEstreno(int anioEstreno) {
 		this.anioEstreno = anioEstreno;
 	}
-	public Categoria getCategoria() {
+	public int getCategoria() {
 		return categoria;
 	}
-	public void setCategoria(Categoria categoria) {
+	public void setCategoria(int categoria) {
 		this.categoria = categoria;
 	}
 	
@@ -52,7 +52,7 @@ public class Peliculas {
 		super();
 	}
 	
-	public Peliculas(int idPelicula, String nombre, int anioEstreno, Categoria categoria) {
+	public Peliculas(int idPelicula, String nombre, int anioEstreno, int categoria) {
 		super();
 		IdPelicula = idPelicula;
 		this.nombre = nombre;
