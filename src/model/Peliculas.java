@@ -1,4 +1,5 @@
 package model;
+import utilidades.LecturaDatos;
 
 /**
  * Clase Peliculas
@@ -19,6 +20,7 @@ public class Peliculas {
 	private String nombre;
 	private int anioEstreno;
 	private int categoria;
+
 	
 
 	// Getter y Setter
@@ -43,6 +45,7 @@ public class Peliculas {
 	public int getCategoria() {
 		return categoria;
 	}
+
 	public void setCategoria(int categoria) {
 		this.categoria = categoria;
 	}
@@ -52,6 +55,7 @@ public class Peliculas {
 		super();
 	}
 	
+
 	public Peliculas(int idPelicula, String nombre, int anioEstreno, int categoria) {
 		super();
 		IdPelicula = idPelicula;
@@ -65,5 +69,17 @@ public class Peliculas {
 	public String toString() {
 		return "Peliculas [IdPelicula=" + IdPelicula + ", nombre=" + nombre + ", anioEstreno=" + anioEstreno
 				+ ", categoria=" + categoria + "]";
+	}
+	
+	public void crearPelicula() {
+		 try {
+	            this.IdPelicula = LecturaDatos.leerInt("Introduzca un ID");
+			 	this.nombre = LecturaDatos.leerString("Introduzca el nombre de la película");
+			 	this.anioEstreno = LecturaDatos.leerInt("Introduzca el año de estreno de la película");
+			 	this.categoria = LecturaDatos.leerInt("Introduzca la categoría");
+
+	        } catch (Exception e) {
+	            e.getStackTrace();
+	        }
 	}
 }

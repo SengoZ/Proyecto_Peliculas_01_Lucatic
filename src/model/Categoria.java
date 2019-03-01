@@ -16,6 +16,7 @@ public class Categoria {
 	 * Se define el atributo nombreCategoría
 	 */
 	private String nombreCategoria;
+	
 	// GETTER Y SETTER
 
 	public String getNombreCategoria() {
@@ -42,5 +43,7 @@ public class Categoria {
 	public Categoria() {
 		super();
 	}
-
+	public void crearCategoria() {
+		
+	}
 }
