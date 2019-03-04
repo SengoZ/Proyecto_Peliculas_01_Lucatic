@@ -2,6 +2,7 @@ package control;
 import datos.Datos;
 import datos.I_datos;
 import excepciones.DAOException;
+import excepciones.LecturaException;
 import model.Peliculas;
 import model.Categoria;
 
@@ -9,12 +10,11 @@ import model.Categoria;
 public class Main {
 
 
-	public static void main(String[] args) throws DAOException {
-		new Datos().bajaPeliculas(1);
-		/*Arranque menu = new Arranque();
+	public static void main(String[] args) throws DAOException, LecturaException {
+		Arranque menu = new Arranque();
 		menu.menu();
 		I_datos prueba = new Datos();
 		Peliculas peli = new Peliculas(1,"Los vengadores",2018,1);
-		prueba.altaPeliculas(peli);*/
+		prueba.altaPeliculas(peli);
 	}
 }
