@@ -70,7 +70,7 @@ public class Datos implements I_datos {
 
                  return null;
              }
-             return (new Peliculas(rs.getInt("ID"), rs.getString("NOMBRE"), rs.getInt("ANIOESTRENO"), rs.getInt("CATEGORIA")));
+             return (new Peliculas(rs.getInt("ID"), rs.getString("NOMBRE"), rs.getInt("ANIOESTRENO"), rs.getInt("CATEGORIA"), rs.getInt("VISUALIZACIONES")));
          } catch (SQLException se) {
   			se.printStackTrace();
   			System.out.println("---"+se.getSQLState());

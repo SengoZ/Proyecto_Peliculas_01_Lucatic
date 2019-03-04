@@ -44,9 +44,15 @@ public class Servicios implements IServicios{
 		new GestionUsuario().modificar(id);
 	}
 
-	@Override
 	public void modificacionCategorias(int idCategorias) throws DAOException, LecturaException {
 		new DatosCat().modificarCategorias(idCategorias);
+		
+	}
+	public void listadoCat() throws DAOException {
+		new DatosCat().listadoCat();
+}
+	public void listadoPeliCat(int id) throws DAOException {
+		new DatosCat().listadoPeliCat(id);
 		
 	}
 	

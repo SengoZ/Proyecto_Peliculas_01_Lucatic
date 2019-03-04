@@ -10,4 +10,6 @@ public interface IServicios {
 	public void altaCategorias(Categoria cate) throws DAOException;
 	public void bajaCategorias(int idCategorias) throws DAOException;
 	public void modificacionCategorias(int idCategorias) throws DAOException, LecturaException;
+	public void listadoCat() throws DAOException;
+	public void listadoPeliCat(int id) throws DAOException;
 }

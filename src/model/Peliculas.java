@@ -20,12 +20,19 @@ public class Peliculas {
 	private String nombre;
 	private int anioEstreno;
 	private int categoria;
-
-	
+	private int visualizaciones;
+		
 
 	// Getter y Setter
+	
 	public int getIdPelicula() {
 		return IdPelicula;
+	}
+	public int getVisualizaciones() {
+		return visualizaciones;
+	}
+	public void setVisualizaciones(int visualizaciones) {
+		this.visualizaciones = visualizaciones;
 	}
 	public void setIdPelicula(int idPelicula) {
 		IdPelicula = idPelicula;
@@ -56,31 +63,39 @@ public class Peliculas {
 	}
 	
 
-	public Peliculas(int idPelicula, String nombre, int anioEstreno, int categoria) {
+	public Peliculas(int idPelicula, String nombre, int anioEstreno, int categoria, int visualizaciones) {
 		super();
 		IdPelicula = idPelicula;
 		this.nombre = nombre;
 		this.anioEstreno = anioEstreno;
 		this.categoria = categoria;
+		this.visualizaciones = visualizaciones;
+		
 	}
 	
 	// Método toString
+
+	
 	@Override
 	public String toString() {
 		return "Peliculas [IdPelicula=" + IdPelicula + ", nombre=" + nombre + ", anioEstreno=" + anioEstreno
-				+ ", categoria=" + categoria + "]";
+				+ ", categoria=" + categoria + ", visualizaciones=" + visualizaciones + "]";
 	}
+
 	
 	public void crearPelicula() {
 		 try {
-	            this.IdPelicula = LecturaDatos.leerInt("Introduzca un ID");
+	            this.IdPelicula = IdPelicula;
 			 	this.nombre = LecturaDatos.leerString("Introduzca el nombre de la película");
 			 	this.anioEstreno = LecturaDatos.leerInt("Introduzca el año de estreno de la película");
 			 	this.categoria = LecturaDatos.leerInt("Introduzca la categoría");
-
+			 	this.visualizaciones = 0;
 	        } catch (Exception e) {
 	            e.getStackTrace();
 	        }
 	}
-
+	public void imprimirPelicula() {
+		System.out.println(this.toString());
+	}
 }
+
