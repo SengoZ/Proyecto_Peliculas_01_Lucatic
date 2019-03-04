@@ -91,11 +91,11 @@ public class Arranque {
 				case 12:
 					new Servicios().listadoUsuario();
 					break;
-				case 16:
+				case 14:
 					salir = true;
 					break;
 				default:
-					if ((opcion < 1 || opcion > 16)) {
+					if ((opcion < 1 || opcion > 14)) {
 						System.out.println("Solo números entre 1 y 16");
 						throw new FueraDeRango(opcion);
 					}

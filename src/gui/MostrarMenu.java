@@ -19,7 +19,7 @@ public class MostrarMenu {
         System.out.println("|||" + "            11. Listado peliculas por categoria" + "       |||");
         System.out.println("|||" + "            12. Listado usuario" + "                       |||");
         System.out.println("|||" + "            13. Listado de peliculas mas valoradas" + "    |||");
-        System.out.println("|||" + "            16. Salir" + "                                 |||");
+        System.out.println("|||" + "            14. Salir" + "                                 |||");
         System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
 	}
 
