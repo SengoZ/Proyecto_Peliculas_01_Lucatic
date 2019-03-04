@@ -17,6 +17,7 @@ public class Servicios implements IServicios{
 	}
 	public void altaCategorias(Categoria cate) throws DAOException {
 		new DatosCat().altaCategorias(cate);
+		
 	}
 
 	
