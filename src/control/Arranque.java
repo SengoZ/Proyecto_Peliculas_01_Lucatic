@@ -72,6 +72,10 @@ public class Arranque {
                     new Servicios().listadoCat();
                     int id=LecturaDatos.leerInt("\n"+"Introduzca la categoría (número)");
                     new Servicios().listadoPeliCat(id);
+                    break;
+				case 12:
+					new Servicios().listadoUsuario();
+					break;
 				case 16:
 					salir = true;
 					break;
