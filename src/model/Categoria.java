@@ -1,49 +1,56 @@
 package model;
+import utilidades.LecturaDatos;
 
-/**
- * Clase Categorias
- *
- * Contiene informacion de las categorias
- *
- * @author Sheila
- * @version 1.0
- * @date 01/03/2019
- */
 public class Categoria {
 
 	// ATRIBUTO
-	/**
-	 * Se define el atributo nombreCategoría
-	 */
-	private String nombreCategoria;
+	private int idCategorias;
+	private String nombreCat;
 	
-	// GETTER Y SETTER
-
-	public String getNombreCategoria() {
-		return nombreCategoria;
-	}
-
-	public void setNombreCategoria(String nombreCategoria) {
-		this.nombreCategoria = nombreCategoria;
-	}
-
-	// ToString
-	@Override
-	public String toString() {
-		return "Categoria [nombreCategoria=" + nombreCategoria + "]";
-	}
-
 	//CONSTRUCTORES
 	
-	public Categoria(String nombreCategoria) {
-		super();
-		this.nombreCategoria = nombreCategoria;
-	}
 
 	public Categoria() {
 		super();
 	}
+
+	public Categoria(int idCategorias, String nombreCat) {
+		super();
+		this.idCategorias = idCategorias;
+		this.nombreCat = nombreCat;
+	}
+
+	public int getIdCategorias() {
+		return idCategorias;
+	}
+
+	public void setIdCategorias(int idCategorias) {
+		this.idCategorias = idCategorias;
+	}
+
+	public String getNombreCat() {
+		return nombreCat;
+	}
+
+	public void setNombreCat(String nombreCat) {
+		this.nombreCat = nombreCat;
+	}
+
+	@Override
+	public String toString() {
+		return "Categoria [idCategorias=" + idCategorias + ", nombreCat=" + nombreCat + "]";
+	}
 	
+
+	public void crearCat() {
+		try {
+			this.setIdCategorias(LecturaDatos.leerInt("Introduzca un ID"));
+			this.setNombreCat(LecturaDatos.leerString("Introduzca el nombre de la categoría"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
 		
 	}
+
+}
 

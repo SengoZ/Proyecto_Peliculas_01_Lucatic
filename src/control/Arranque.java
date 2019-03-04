@@ -14,7 +14,7 @@ import excepciones.DAOException;
 import model.Peliculas;
 import servicios.Servicios;
 import utilidades.LecturaDatos;
-
+import model.Categoria;
 public class Arranque {
 
 	public void menu() throws DAOException, LecturaException {
@@ -48,12 +48,18 @@ public class Arranque {
 				case 4:
 					System.out.println("Ha seleccionado BAJA USUARIO");
 					break;
-				case 5:
+				case 8:
+					System.out.println("Ha seleccionado ALTA NUEVA CATEGORÍA");
+					Categoria cate = new Categoria();
+					cate.crearCat();
+					new Servicios().altaCategorias(cate);
+					break;
+				case 10:
 					salir = true;
 					break;
 				default:
-					if ((opcion < 1 || opcion > 5)) {
-						System.out.println("Solo números entre 1 y 5");
+					if ((opcion < 1 || opcion > 10)) {
+						System.out.println("Solo números entre 1 y 10");
 						throw new FueraDeRango(opcion);
 					}
 				}

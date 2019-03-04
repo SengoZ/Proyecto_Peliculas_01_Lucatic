@@ -1,5 +1,7 @@
 package control;
 import datos.Datos;
+import datos.DatosCat;
+import datos.I_DatosCat;
 import datos.I_datos;
 import excepciones.DAOException;
 import excepciones.LecturaException;
@@ -14,8 +16,6 @@ public class Main {
 
 		Arranque menu = new Arranque();
 		menu.menu();
-		I_datos prueba = new Datos();
-		Peliculas peli = new Peliculas(1,"Los vengadores",2018,1);
-		prueba.altaPeliculas(peli);
+
 	}
 }
