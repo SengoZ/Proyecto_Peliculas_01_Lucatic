@@ -50,9 +50,15 @@ public class Arranque {
 					break;
 				case 4:
 					System.out.println("Ha seleccionado BAJA USUARIO");
+					new Servicios().bajaUsuario(LecturaDatos.leerInt("Introduzca Id: "));
 					break;
 				case 7:
 					new Servicios().listarPeliculas();
+					break;
+				case 5:
+					System.out.println("Ha seleccionado MODIFICACIÓN USUARIO");
+					new Servicios().modificar(LecturaDatos.leerInt("Introduzca Id: "));
+					break;
 				case 8:
 					System.out.println("Ha seleccionado ALTA CATEGORÍA");
 					Categoria cat = new Categoria();
@@ -66,9 +72,20 @@ public class Arranque {
 				case 10:
 					System.out.println("Ha seleccionado MODIFICACIÓN CATEGORÍA");
 					new Servicios().modificacionCategorias(0);
+					break;
 				case 13:
 					System.out.println("              ----------Peliculas mas vistas----------"+"\n");
 					new Servicios().masVistas();
+					break;
+				case 11:
+					System.out.println("Ha seleccionado LISTAR POR CATEGORÍAS");
+                    new Servicios().listadoCat();
+                    int id=LecturaDatos.leerInt("\n"+"Introduzca la categoría (número)");
+                    new Servicios().listadoPeliCat(id);
+                    break;
+				case 12:
+					new Servicios().listadoUsuario();
+					break;
 				case 16:
 					salir = true;
 					break;

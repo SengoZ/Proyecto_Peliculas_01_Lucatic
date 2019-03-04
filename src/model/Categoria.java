@@ -48,11 +48,14 @@ public class Categoria {
 
 	public void crearCat() {
 		try {
-			this.setIdCategorias(LecturaDatos.leerInt("Introduzca un ID"));
+			
 			this.setNombreCat(LecturaDatos.leerString("Introduzca el nombre de la categoría"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
+	}
+	public void imprimirCat() {
+		System.out.println(this.toString());
 	}
 }

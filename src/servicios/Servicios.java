@@ -33,8 +33,19 @@ public class Servicios implements IServicios{
 	public void crearUsuario() throws LecturaException, ParseException{
 		new GestionUsuario().crearUsuario();
 	}
+	
+	public void bajaUsuario(int id) throws DAOException{
+		new GestionUsuario().baja(id);
+	}
+	
+	public void listadoUsuario() {
+		new GestionUsuario().listado();
+	} 
+	
+	public void modificar(int id) throws LecturaException, DAOException{
+		new GestionUsuario().modificar(id);
+	}
 
-	@Override
 	public void modificacionCategorias(int idCategorias) throws DAOException, LecturaException {
 		new DatosCat().modificarCategorias(idCategorias);
 		
@@ -42,7 +53,12 @@ public class Servicios implements IServicios{
 	public void listarPeliculas() throws DAOException {
 		new Datos().listadoPeliculas();
 	}
-	
+	public void listadoCat() throws DAOException {
+		new DatosCat().listadoCat();
+	}
+	public void listadoPeliCat(int id) throws DAOException {
+		new DatosCat().listadoPeliCat(id);
+	}
 	public void masVistas() throws DAOException{
 		new Datos().masVistas();
 	}

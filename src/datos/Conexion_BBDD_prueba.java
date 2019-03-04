@@ -36,7 +36,8 @@ public class Conexion_BBDD_prueba {
 	        ConnectionFactory cf = new DriverManagerConnectionFactory(JDBC_DB_URL, JDBC_USER, JDBC_PASS);
 	        
 	        // Creates a PoolableConnectionFactory That Will Wraps the Connection Object Created by the ConnectionFactory to Add Object Pooling Functionality!
-	        PoolableConnectionFactory pcf = new PoolableConnectionFactory(cf, gPool, null, null, false, true);
+	        @SuppressWarnings("unused")
+			PoolableConnectionFactory pcf = new PoolableConnectionFactory(cf, gPool, null, null, false, true);
 	        
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
