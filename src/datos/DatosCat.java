@@ -159,7 +159,7 @@ public class DatosCat implements I_datosCat {
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
 				if(id==rs.getInt("CATEGORIA")) {
-					Peliculas peli = new Peliculas(rs.getInt("ID"), rs.getString("NOMBRE"), rs.getInt("ANIOESTRENO"), rs.getInt("CATEGORIA"), rs.getInt("VISUALIZACIONES"));
+					Peliculas peli = new Peliculas(rs.getInt("ID"), rs.getString("NOMBRE"), rs.getInt("ANIOESTRENO"), rs.getInt("CATEGORIA"), rs.getInt("VISUALIZACIONES"), rs.getInt("CATUSUARIO"));
 	                peli.imprimirPelicula();
 	            }
 	        //log.info("Comprobando listado");

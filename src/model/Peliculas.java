@@ -21,7 +21,7 @@ public class Peliculas {
 	private int anioEstreno;
 	private int categoria;
 	private int visualizaciones;
-
+	private int catUsuario;
 	
 
 	// Getter y Setter
@@ -57,6 +57,13 @@ public class Peliculas {
 	public void setVisualizaciones(int visualizaciones) {
 		this.visualizaciones = visualizaciones;
 	}
+	public int getCatUsuario() {
+		return catUsuario;
+	}
+
+	public void setCatUsuario(int catUsuario) {
+		this.catUsuario = catUsuario;
+	}
 	
 	// Constructor
 	public Peliculas() {
@@ -64,13 +71,14 @@ public class Peliculas {
 	}
 	
 
-	public Peliculas(int idPelicula, String nombre, int anioEstreno, int categoria, int visualizaciones) {
+	public Peliculas(int idPelicula, String nombre, int anioEstreno, int categoria, int visualizaciones, int catUsuario) {
 		super();
 		IdPelicula = idPelicula;
 		this.nombre = nombre;
 		this.anioEstreno = anioEstreno;
 		this.categoria = categoria;
 		this.visualizaciones=visualizaciones;
+		this.catUsuario=catUsuario;
 	}
 	public Peliculas(int idPelicula, String nombre, int anioEstreno, int categoria) {
 		super();
@@ -85,7 +93,7 @@ public class Peliculas {
 	@Override
 	public String toString() {
 		return "Peliculas [ID = " + IdPelicula + ", NOMBRE " + nombre + ", AÑO ESTRENO " + anioEstreno
-				+ ", CATEGORIA " + categoria + ", VISUALIZACIONES = " + visualizaciones +"]";
+				+ ", CATEGORIA " + categoria + ", VISUALIZACIONES = " + visualizaciones + "CATEGORIA PARA USUARIO = "+ catUsuario+"]";
 	}
 	
 	public void crearPelicula() {
