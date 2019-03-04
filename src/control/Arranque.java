@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import excepciones.FueraDeRango;
 import excepciones.LecturaException;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -19,7 +20,7 @@ import utilidades.LecturaDatos;
 
 public class Arranque {
 
-	public void menu() throws DAOException, LecturaException, ParseException {
+	public void menu() throws DAOException, LecturaException, ParseException, SQLException {
 		final Logger log = LogManager.getLogger("Arranque");
 		@SuppressWarnings("resource")
 		Scanner sn = new Scanner(System.in);
@@ -51,6 +52,10 @@ public class Arranque {
 				case 4:
 					System.out.println("Ha seleccionado BAJA USUARIO");
 					new Servicios().bajaUsuario(LecturaDatos.leerInt("Introduzca Id: "));
+					break;
+				case 6:
+					System.out.println("Ha seleccionado LISTA PELÍCULAS POR CATEGORÍA USUARIO");
+					new Servicios().listaPusuarioCat(LecturaDatos.leerInt("Introduzca Id de Usuario: "));
 					break;
 				case 7:
 					new Servicios().listarPeliculas();

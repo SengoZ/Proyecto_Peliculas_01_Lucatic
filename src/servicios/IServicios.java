@@ -1,4 +1,5 @@
 package servicios;
+import java.sql.SQLException;
 import java.text.ParseException;
 
 import excepciones.DAOException;
@@ -18,4 +19,5 @@ public interface IServicios {
 	public void modificar(int id) throws LecturaException, DAOException;
 	public void listadoCat() throws DAOException;
 	public void listadoPeliCat(int id) throws DAOException;
+	public void listaPusuarioCat(int id) throws DAOException, SQLException;
 }

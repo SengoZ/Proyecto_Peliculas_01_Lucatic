@@ -11,7 +11,7 @@ public class MostrarMenu {
         System.out.println("|||" + "            3. Alta nuevo usuario" + "                     |||");
         System.out.println("|||" + "            4. Baja usuario" + "                           |||");
         System.out.println("|||" + "            5. Modificación usuario" + "                   |||");
-        System.out.println("|||" + "            6. Lista películas por usuario" + "            |||");
+        System.out.println("|||" + "            6. Lista películas por categoría usuario" + "  |||");
         System.out.println("|||" + "            7. Listado películas" + "                      |||");
         System.out.println("|||" + "            8. Alta nueva categoría" + "                   |||");
         System.out.println("|||" + "            9. Baja categoria" + "                         |||");

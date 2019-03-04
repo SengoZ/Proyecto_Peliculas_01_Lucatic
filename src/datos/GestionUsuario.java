@@ -48,7 +48,7 @@ public class GestionUsuario implements I_datos_usuarios{
     	 user.setNombre_completo(LecturaDatos.leerString("Introduzca nombre completo: "));
     	 user.setDate(fecha_nacimiento());
     	 user.setCiudad(LecturaDatos.leerString("Introduzca ciudad: "));
-    	 user.setCategoria(0);
+    	 //user.setCategoria((int)2);
     	 alta(user);
      }
      
@@ -61,7 +61,7 @@ public class GestionUsuario implements I_datos_usuarios{
 	public void alta(Object obj) {
 	
 		try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()){
-			String query = "INSERT INTO CLIENTES(NOMBRE_COMPLETO_USUARIO, FECHA_NACIMIENTO, CIUDAD, CATEGORIA) VALUES ('" + ((Usuario)obj).getNombre_completo()+"' ,'"+((Usuario)obj).getDate()+ "' ,'" + ((Usuario)obj).getCiudad()+"', "+((Usuario)obj).getCategoria()+")";
+			String query = "INSERT INTO CLIENTES(NOMBRE_COMPLETO_USUARIO, FECHA_NACIMIENTO, CIUDAD) VALUES ('" + ((Usuario)obj).getNombre_completo()+"' ,'"+((Usuario)obj).getDate()+ "' ,'" + ((Usuario)obj).getCiudad()+"')";
 			if(stmt.executeUpdate(query) != 1) {
 				System.out.println("Error al introducir usuario");
 				//log.error("Ha ocurrido un error al incluir una película");

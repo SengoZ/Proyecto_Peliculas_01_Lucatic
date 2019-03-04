@@ -1,5 +1,6 @@
 package servicios;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 
 import datos.Datos;
@@ -61,5 +62,8 @@ public class Servicios implements IServicios{
 	}
 	public void masVistas() throws DAOException{
 		new Datos().masVistas();
+	}
+	public void listaPusuarioCat(int id) throws SQLException, DAOException {
+		new Datos().listaPusuarioCat(id);
 	}
 }

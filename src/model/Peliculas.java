@@ -88,6 +88,15 @@ public class Peliculas {
 		this.categoria = categoria;
 		this.visualizaciones=0;
 	}
+	public Peliculas(int idPelicula, String nombre, int anioEstreno, int categoria, int catUsuario) {
+		super();
+		IdPelicula = idPelicula;
+		this.nombre = nombre;
+		this.anioEstreno = anioEstreno;
+		this.categoria = categoria;
+		this.visualizaciones=0;
+		this.catUsuario = catUsuario;
+	}
 	
 	// Método toString
 	@Override
