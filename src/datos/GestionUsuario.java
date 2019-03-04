@@ -12,13 +12,37 @@ import excepciones.LecturaException;
 import model.Usuario;
 import utilidades.LecturaDatos;
 
+/**
+ * Clase Gestion Usuario
+ * 
+ * Contiene los metodos que gestionan los datos de los usuarios
+ * 
+ * 
+ * @author Grupo 3
+ * @version
+ */
 
 public class GestionUsuario implements I_datos_usuarios{
+	
+	// ATRIBUTOS PARA USAR EN LOS QUERYS 
+	
+	/**
+	 * Texto del mensaje
+	 */
 	
 	 ResultSet rsObj = null;
      Statement pstmtObj = null;
      String query;
 
+     // METODOS PUBLICOS
+     /**
+      * Asigna los datos a los atributos de la clase Usuario
+      * 
+      * 
+      * @throws LecturaException
+      * @throws ParseException
+      */
+     
      public void crearUsuario() throws LecturaException, ParseException {
     	 Usuario user = new Usuario();
     	 user.setNombre_completo(LecturaDatos.leerString("Introduzca nombre completo: "));
@@ -27,6 +51,13 @@ public class GestionUsuario implements I_datos_usuarios{
     	 user.setCategoria(0);
     	 alta(user);
      }
+     
+     /**
+      * Metodo para dar de Alta a un usuario dentro de la base de datos.
+      * @param Objeto: de tipo Objeto genérico
+      */
+     
+    @Override 
 	public void alta(Object obj) {
 	
 		try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()){
@@ -43,6 +74,11 @@ public class GestionUsuario implements I_datos_usuarios{
 		}
 	}
 
+    /**
+     * Metodo para dar de baja a un usuario dentro de la base de datos
+     * @param int: entrada de un numero entero, correspondiente a al ID del usuario a eliminar
+     */
+    
 	@Override
 	public void baja(int id) throws DAOException {
 		Usuario user = findById(id);
@@ -70,6 +106,10 @@ public class GestionUsuario implements I_datos_usuarios{
          }
 	}
 
+	/**
+	 * Metodo para listar los usuarios almacenados dentro de la base de datos
+	 */
+	
 	@Override
 	public void listado() {
 		try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()) {
@@ -95,6 +135,11 @@ public class GestionUsuario implements I_datos_usuarios{
         }
 	}
 	
+	/**
+	 * Metodo para convertir 3 enteros correspondientes con dia, mes y año en formato DATE
+	 * @return Date: devuelve una fecha en formato DATE
+	 * @throws LecturaException
+	 */
 	public Date fecha_nacimiento() throws LecturaException {
 		System.out.println("Introduzca Fecha de nacimiento: ");
 		int dia = LecturaDatos.leerInt("Introduzca dia: ");
@@ -105,6 +150,10 @@ public class GestionUsuario implements I_datos_usuarios{
    	 	
 	}
 
+	/**
+	 * Metodo para modificar los atributos asociados a un usuario almacenado dentro de la BBDD
+	 * @param int: parámetro de entrada de numero entero, correspondiente al ID de un usuario
+	 */
 	@Override
 	public void modificar(int id) throws LecturaException, DAOException {
 		try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()) {
@@ -140,6 +189,12 @@ public class GestionUsuario implements I_datos_usuarios{
         }
 	}
 	
+	/**
+	 * Método auxiliar para listar los atributos disponibles dentro de la clase usuario, en la cual
+	 * devuelve un valor entero correspondiente al atributo que se quiere modificar
+	 * @return int: Devuelve un entero correspondiendo con un atributo de la clase Usuario
+	 * @throws LecturaException
+	 */
 	public int opc_modificar() throws LecturaException {
 		System.out.println("Indique lo que desea modificar ");
 		System.out.println("1-. Nombre");
@@ -148,6 +203,11 @@ public class GestionUsuario implements I_datos_usuarios{
 		//System.out.println("4-. Categoria");
 		return LecturaDatos.leerInt("Introduzca opción: ");
 	}
+	/**
+	 * Verifica mediante un valor ID si existe el usuario y lo devuelve como objeto
+	 * @param id: numero entero, correspondiente al valor ID del usuario
+	 * @return Object: Devuelve un objeto de clase Usuario según el ID introducido
+	 */
 	
 	public Usuario findById(int id) {
 		try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()) {
