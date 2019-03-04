@@ -52,7 +52,9 @@ public class Arranque {
 					System.out.println("Ha seleccionado BAJA USUARIO");
 					new Servicios().bajaUsuario(LecturaDatos.leerInt("Introduzca Id: "));
 					break;
-					
+				case 5:
+					System.out.println("Ha seleccionado MODIFICACIÓN USUARIO");
+					new Servicios().modificar(LecturaDatos.leerInt("Introduzca Id: "));
 				case 8:
 					System.out.println("Ha seleccionado ALTA CATEGORÍA");
 					Categoria cat = new Categoria();
