@@ -31,6 +31,18 @@ public class Servicios implements IServicios{
 	public void crearUsuario() throws LecturaException, ParseException{
 		new GestionUsuario().crearUsuario();
 	}
+	
+	public void bajaUsuario(int id) throws DAOException{
+		new GestionUsuario().baja(id);
+	}
+	
+	public void listadoUsuario() {
+		new GestionUsuario().listado();
+	} 
+	
+	public void modificar(int id) throws LecturaException, DAOException{
+		new GestionUsuario().modificar(id);
+	}
 
 	@Override
 	public void modificacionCategorias(int idCategorias) throws DAOException, LecturaException {

@@ -50,6 +50,7 @@ public class Arranque {
 					break;
 				case 4:
 					System.out.println("Ha seleccionado BAJA USUARIO");
+					new Servicios().bajaUsuario(LecturaDatos.leerInt("Introduzca Id: "));
 					break;
 				case 8:
 					System.out.println("Ha seleccionado ALTA CATEGORÍA");
