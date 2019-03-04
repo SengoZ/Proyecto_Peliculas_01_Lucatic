@@ -78,6 +78,7 @@ public class Datos implements I_datos {
  			return null;
          }
      }
+     //Se crea un método para encontrar los clientes po su id
      public Usuario findById2(int idClientes) throws DAOException {
          try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()) {
              String query = "SELECT * FROM CLIENTES WHERE IDCLIENTES=" + idClientes;
