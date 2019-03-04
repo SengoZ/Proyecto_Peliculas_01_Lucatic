@@ -16,4 +16,6 @@ public interface IServicios {
 	public void bajaUsuario(int id) throws DAOException;
 	public void listadoUsuario();
 	public void modificar(int id) throws LecturaException, DAOException;
+	public void listadoCat() throws DAOException;
+	public void listadoPeliCat(int id) throws DAOException;
 }
