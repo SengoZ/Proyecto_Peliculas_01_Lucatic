@@ -70,10 +70,6 @@ public class Datos implements I_datos {
 
                  return null;
              }
-<<<<<<< HEAD
-=======
-   		  	log.info("-----NO HA ENTRADO AL IF	");
->>>>>>> branch 'master' of https://github.com/SengoZ/Proyecto_Peliculas_01_Lucatic.git
              return (new Peliculas(rs.getInt("ID"), rs.getString("NOMBRE"), rs.getInt("ANIOESTRENO"), rs.getInt("CATEGORIA")));
          } catch (SQLException se) {
   			se.printStackTrace();
@@ -84,21 +80,7 @@ public class Datos implements I_datos {
          }
      }
 
-     @Override
-     public void listadoPeliculas() throws DAOException {
-         try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
-             String query = "SELECT * FROM PELICULAS";
-   		  	log.info("-----"+query);
-             ResultSet rs = stmt.executeQuery(query);
-   		  	log.info("-----"+rs);
-             // Crear ArrayList para ir guardando las películas
-             // Iterar a través de resultados y crear objetos de películas
-             while (rs.next()) {
-            	 new Peliculas(rs.getInt("ID"), rs.getString("NOMBRE"), rs.getInt("ANIOESTRENO"), rs.getInt("CATEGORIA")).imprimirPelicula();;
-             }
-         } catch (SQLException se) {
-             //se.printStackTrace();
-             throw new DAOException("Error getting all employees in DAO: " + se.getMessage(), se);
-         }
-     }
+     // Return an array of all of the Employee records
+     // We are using a collection List object to store the results
+     // This makes it easier to just add to the collection
 }
