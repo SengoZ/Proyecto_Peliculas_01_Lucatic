@@ -1,4 +1,6 @@
 package servicios;
+import java.text.ParseException;
+
 import excepciones.DAOException;
 import excepciones.LecturaException;
 import model.Categoria;
@@ -10,4 +12,8 @@ public interface IServicios {
 	public void altaCategorias(Categoria cate) throws DAOException;
 	public void bajaCategorias(int idCategorias) throws DAOException;
 	public void modificacionCategorias(int idCategorias) throws DAOException, LecturaException;
+	public void crearUsuario() throws LecturaException, ParseException;
+	public void bajaUsuario(int id) throws DAOException;
+	public void listadoUsuario();
+	public void modificar(int id) throws LecturaException, DAOException;
 }
