@@ -8,7 +8,7 @@ import model.Categoria;
 
 
 public class Main {
-
+ //// ultima version Amador y Sheila
 
 	public static void main(String[] args) throws DAOException, LecturaException {
 
