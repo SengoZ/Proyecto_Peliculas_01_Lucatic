@@ -9,5 +9,7 @@ public interface I_datos {
 
 	public void bajaPeliculas(int id) throws DAOException;
 
+	public void listadoPeliculas() throws DAOException;
+
 	
 }

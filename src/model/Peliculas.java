@@ -82,5 +82,11 @@ public class Peliculas {
 	            e.getStackTrace();
 	        }
 	}
+<<<<<<< HEAD
 
+=======
+	public void imprimirPelicula() {
+		System.out.println(this.toString());
+	}
+>>>>>>> branch 'master' of https://github.com/SengoZ/Proyecto_Peliculas_01_Lucatic.git
 }
