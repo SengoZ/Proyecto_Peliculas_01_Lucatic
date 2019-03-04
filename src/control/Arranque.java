@@ -11,10 +11,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import excepciones.DAOException;
+import model.Categoria;
 import model.Peliculas;
 import servicios.Servicios;
 import utilidades.LecturaDatos;
-import model.Categoria;
+
 public class Arranque {
 
 	public void menu() throws DAOException, LecturaException {
@@ -49,17 +50,24 @@ public class Arranque {
 					System.out.println("Ha seleccionado BAJA USUARIO");
 					break;
 				case 8:
-					System.out.println("Ha seleccionado ALTA NUEVA CATEGORÍA");
-					Categoria cate = new Categoria();
-					cate.crearCat();
-					new Servicios().altaCategorias(cate);
+					System.out.println("Ha seleccionado ALTA CATEGORÍA");
+					Categoria cat = new Categoria();
+					cat.crearCat();
+					new Servicios().altaCategorias(cat);
+					break;
+				case 9:
+					System.out.println("Ha seleccionado BAJA CATEGORÍA");
+					new Servicios().bajaCategorias(LecturaDatos.leerInt("Introduzca un id de categoría"));
 					break;
 				case 10:
+					System.out.println("Ha seleccionado MODIFICACIÓN CATEGORÍA");
+					new Servicios().modificacionCategorias(0);
+				case 16:
 					salir = true;
 					break;
 				default:
-					if ((opcion < 1 || opcion > 10)) {
-						System.out.println("Solo números entre 1 y 10");
+					if ((opcion < 1 || opcion > 16)) {
+						System.out.println("Solo números entre 1 y 16");
 						throw new FueraDeRango(opcion);
 					}
 				}

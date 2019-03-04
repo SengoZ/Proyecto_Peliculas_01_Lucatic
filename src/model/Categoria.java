@@ -1,24 +1,19 @@
 package model;
+
 import utilidades.LecturaDatos;
 
+/**
+ * Clase Categoria
+ *
+ * Contiene informacion de las categorias
+ *
+ * @author Sheila
+ * @version 1.0
+ * @date 01/03/2019
+ */
 public class Categoria {
-
-	// ATRIBUTO
 	private int idCategorias;
 	private String nombreCat;
-	
-	//CONSTRUCTORES
-	
-
-	public Categoria() {
-		super();
-	}
-
-	public Categoria(int idCategorias, String nombreCat) {
-		super();
-		this.idCategorias = idCategorias;
-		this.nombreCat = nombreCat;
-	}
 
 	public int getIdCategorias() {
 		return idCategorias;
@@ -40,7 +35,16 @@ public class Categoria {
 	public String toString() {
 		return "Categoria [idCategorias=" + idCategorias + ", nombreCat=" + nombreCat + "]";
 	}
-	
+
+	public Categoria(int idCategorias, String nombreCat) {
+		super();
+		this.idCategorias = idCategorias;
+		this.nombreCat = nombreCat;
+	}
+
+	public Categoria() {
+		super();
+	}
 
 	public void crearCat() {
 		try {
@@ -48,9 +52,7 @@ public class Categoria {
 			this.setNombreCat(LecturaDatos.leerString("Introduzca el nombre de la categoría"));
 		} catch (Exception e) {
 			e.printStackTrace();
-		}	
-		
+		}
+
 	}
-
 }
-

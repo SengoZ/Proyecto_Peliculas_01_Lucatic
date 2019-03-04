@@ -15,7 +15,7 @@ public class Datos implements I_datos {
 	
 	@Override
 	public void altaPeliculas(Peliculas peli) throws DAOException {//es necesario actualizar este metodo.
-		try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()){
+		try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()){
 			String query = "INSERT INTO PELICULAS VALUES ("+peli.getIdPelicula()+", '" + peli.getNombre()+"' ,"+peli.getAnioEstreno()+ " ,"+peli.getCategoria()+")";
 			log.info("-----"+query);
 			//da un error
@@ -40,7 +40,7 @@ public class Datos implements I_datos {
         	 log.info("----------------------------La ID que quieres eliminar no existe");
              throw new DAOException("Pelicula id: " + id + " no existe para eliminarla.");
          }
-         try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
+         try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()) {
         	 log.info("-------------------------La conexion se ha realizado correctamente");
              String query = "DELETE FROM PELICULAS WHERE ID=" + id;
         	 log.info("-------------------------Query Creada");
@@ -61,7 +61,7 @@ public class Datos implements I_datos {
  // Find an Employee record using this ID
 
      public Peliculas findById(int id) throws DAOException {
-         try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
+         try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()) {
              String query = "SELECT * FROM PELICULAS WHERE ID=" + id;
  		  	log.info("-----"+query);
              ResultSet rs = stmt.executeQuery(query);

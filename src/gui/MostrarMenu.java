@@ -9,8 +9,10 @@ public class MostrarMenu {
         System.out.println("\\\\" + "   2. Baja película" + "          \\\\");
         System.out.println("\\\\" + "   3. Alta nuevo usuario" + "     \\\\");
         System.out.println("\\\\" + "   4. Baja usuario" + "           \\\\");
-        System.out.println("\\\\" + "   8. Alta  nueva categoría" + "  \\\\");
-        System.out.println("\\\\" + "   10. Salir" + "                  \\\\");
+        System.out.println("\\\\" + "   8. Alta nueva categoría" + "   \\\\");
+        System.out.println("\\\\" + "   9. Baja categoria" + "         \\\\");
+        System.out.println("\\\\" + "   10. Modificación categoria" + "\\\\");
+        System.out.println("\\\\" + "   16. Salir" + "                 \\\\");
         System.out.println("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
 	}
 
