@@ -18,7 +18,8 @@ public class Conexion_BBDD_prueba {
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
     //private static final String JDBC_DB_URL = "jdbc:mysql://localhost/movie_flix"; // PON LA BASE DE DATOS LOCAL!!!!!!!!!!!!!
     private static final String JDBC_DB_URL = "jdbc:mysql://192.168.101.112:3306/movie_flix"; //-> -> Base de datos general, tocar lo menos posible
- 
+    //private static final String JDBC_DB_URL = "jdbc:mysql://localhost/movie_flix"; //-> -> Base de datos general, tocar lo menos posible
+    
     // JDBC Database Credentials
     private static final String JDBC_USER = "root";
     private static final String JDBC_PASS = "root";

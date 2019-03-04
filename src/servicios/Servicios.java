@@ -1,10 +1,13 @@
 package servicios;
 
+import java.text.ParseException;
+
 import datos.Datos;
 import excepciones.DAOException;
 import excepciones.LecturaException;
 import model.Peliculas;
 import datos.DatosCat;
+import datos.GestionUsuario;
 import model.Categoria;
 
 public class Servicios implements IServicios{
@@ -23,6 +26,10 @@ public class Servicios implements IServicios{
 
 	public void bajaCategorias(int idCategorias) throws DAOException {
 		new DatosCat().bajaCategorias(idCategorias);
+	}
+	
+	public void crearUsuario() throws LecturaException, ParseException{
+		new GestionUsuario().crearUsuario();
 	}
 
 	@Override

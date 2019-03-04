@@ -16,7 +16,7 @@ public class Datos implements I_datos {
 	@Override
 	public void altaPeliculas(Peliculas peli) throws DAOException {//es necesario actualizar este metodo.
 		try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()){
-			String query = "INSERT INTO PELICULAS VALUES ("+peli.getIdPelicula()+", '" + peli.getNombre()+"' ,"+peli.getAnioEstreno()+ " ,"+peli.getCategoria()+")";
+			String query = "INSERT INTO PELICULAS(NOMBRE, anioEstreno, categoria) VALUES ('" + peli.getNombre()+"' ,"+peli.getAnioEstreno()+ " ,"+peli.getCategoria()+")";
 			log.info("-----"+query);
 			//da un error
 			if(stmt.executeUpdate(query) != 1) {
