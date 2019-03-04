@@ -28,9 +28,9 @@ public class GestionUsuario implements I_datos_usuarios{
     	 alta(user);
      }
 	public void alta(Object obj) {
+	
 		try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()){
 			String query = "INSERT INTO CLIENTES(NOMBRE_COMPLETO_USUARIO, FECHA_NACIMIENTO, CIUDAD, CATEGORIA) VALUES ('" + ((Usuario)obj).getNombre_completo()+"' ,'"+((Usuario)obj).getDate()+ "' ,'" + ((Usuario)obj).getCiudad()+"', "+((Usuario)obj).getCategoria()+")";
-			//da un error
 			if(stmt.executeUpdate(query) != 1) {
 				System.out.println("Error al introducir usuario");
 				//log.error("Ha ocurrido un error al incluir una película");

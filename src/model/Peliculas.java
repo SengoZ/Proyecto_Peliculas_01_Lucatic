@@ -20,6 +20,7 @@ public class Peliculas {
 	private String nombre;
 	private int anioEstreno;
 	private int categoria;
+	private int visualizaciones;
 
 	
 
@@ -49,6 +50,13 @@ public class Peliculas {
 	public void setCategoria(int categoria) {
 		this.categoria = categoria;
 	}
+	public int getVisualizaciones() {
+		return visualizaciones;
+	}
+
+	public void setVisualizaciones(int visualizaciones) {
+		this.visualizaciones = visualizaciones;
+	}
 	
 	// Constructor
 	public Peliculas() {
@@ -56,24 +64,32 @@ public class Peliculas {
 	}
 	
 
+	public Peliculas(int idPelicula, String nombre, int anioEstreno, int categoria, int visualizaciones) {
+		super();
+		IdPelicula = idPelicula;
+		this.nombre = nombre;
+		this.anioEstreno = anioEstreno;
+		this.categoria = categoria;
+		this.visualizaciones=visualizaciones;
+	}
 	public Peliculas(int idPelicula, String nombre, int anioEstreno, int categoria) {
 		super();
 		IdPelicula = idPelicula;
 		this.nombre = nombre;
 		this.anioEstreno = anioEstreno;
 		this.categoria = categoria;
+		this.visualizaciones=0;
 	}
 	
 	// Método toString
 	@Override
 	public String toString() {
-		return "Peliculas [IdPelicula=" + IdPelicula + ", nombre=" + nombre + ", anioEstreno=" + anioEstreno
-				+ ", categoria=" + categoria + "]";
+		return "Peliculas [ID = " + IdPelicula + ", NOMBRE " + nombre + ", AÑO ESTRENO " + anioEstreno
+				+ ", CATEGORIA " + categoria + ", VISUALIZACIONES = " + visualizaciones +"]";
 	}
 	
 	public void crearPelicula() {
 		 try {
-	            this.IdPelicula = LecturaDatos.leerInt("Introduzca un ID");
 			 	this.nombre = LecturaDatos.leerString("Introduzca el nombre de la película");
 			 	this.anioEstreno = LecturaDatos.leerInt("Introduzca el año de estreno de la película");
 			 	this.categoria = LecturaDatos.leerInt("Introduzca la categoría");
@@ -81,6 +97,9 @@ public class Peliculas {
 	        } catch (Exception e) {
 	            e.getStackTrace();
 	        }
+	}
+	public void imprimirPelicula() {
+		System.out.println(this.toString());
 	}
 
 }
