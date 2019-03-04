@@ -5,16 +5,34 @@ import utilidades.LecturaDatos;
 /**
  * Clase Categoria
  *
- * Contiene informacion de las categorias
+ * Contiene informacion de las categorías
  *
- * @author Sheila
+ * @author Grupo 3
  * @version 1.0
- * @date 01/03/2019
+ * 
  */
+
 public class Categoria {
+	
+	//ATRIBUTOS
+	
 	private int idCategorias;
 	private String nombreCat;
 
+	//CONSTRUCTORES
+	
+	public Categoria() {
+		super();
+	}
+	
+	public Categoria(int idCategorias, String nombreCat) {
+		super();
+		this.idCategorias = idCategorias;
+		this.nombreCat = nombreCat;
+	}
+	
+	//GETTERS & SETTERS
+	
 	public int getIdCategorias() {
 		return idCategorias;
 	}
@@ -31,21 +49,19 @@ public class Categoria {
 		this.nombreCat = nombreCat;
 	}
 
+	//TO STRING
+	
 	@Override
 	public String toString() {
 		return "Categoria [idCategorias=" + idCategorias + ", nombreCat=" + nombreCat + "]";
 	}
 
-	public Categoria(int idCategorias, String nombreCat) {
-		super();
-		this.idCategorias = idCategorias;
-		this.nombreCat = nombreCat;
-	}
+	//MÉTODOS PÚBLICOS
 
-	public Categoria() {
-		super();
-	}
-
+	/**
+	 * Método para crear un objeto tipo Categoría
+	 * Se introduce el nombre de la categoría (String) usando Scanner
+	 */
 	public void crearCat() {
 		try {
 			
@@ -55,6 +71,10 @@ public class Categoria {
 		}
 
 	}
+	
+	/**
+	 * Método para imprimir un objeto tipo Categoría a través del to Strings
+	 */
 	public void imprimirCat() {
 		System.out.println(this.toString());
 	}

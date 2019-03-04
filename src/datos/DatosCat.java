@@ -1,6 +1,7 @@
 package datos;
 
 import model.Categoria;
+
 import model.Peliculas;
 import utilidades.LecturaDatos;
 import java.sql.ResultSet;
@@ -11,15 +12,28 @@ import com.mysql.jdbc.Statement;
 import excepciones.DAOException;
 import excepciones.LecturaException;
 
+/**
+ * Clase DatosCat
+ * 
+ * Contiene la metodología referente al CRUD de la clase Categorías (altas, bajas, modificaciones y listados)
+ * 
+ * @author Grupo 3
+ * @version 1.0
+ *
+ */
+
 public class DatosCat implements I_datosCat {
 
+	//ATRIBUTO LOGGER
+	
 	private static final Logger log = LogManager.getLogger("Datos");
 	
-	/*
-     * Método para realizar el alta de una nueva categoría
-     * @param (objeto del tipo categoría: id (int) y nombre (String))
-     */
+	// METODOS PUBLICOS
 	
+	/**
+     * Método para realizar el alta de una nueva categoría
+     * @param objeto del tipo categoría: nombre (String)
+     */
 	public void altaCategorias(Categoria cat) throws DAOException {// es necesario actualizar este metodo.
 		try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
 			String query = "INSERT INTO CATEGORIAS(NOMBRECAT) VALUES ('" + cat.getNombreCat()+"')";
@@ -38,7 +52,11 @@ public class DatosCat implements I_datosCat {
 		}
 
 	}
-
+	
+	/**
+     * Método para realizar la baja de una categoría
+     * @param id (int) con el identificador de la categoría a borrar
+     */
 	public void bajaCategorias(int idCategorias) throws DAOException {
 
 		Categoria cat = findById(idCategorias);
@@ -66,7 +84,10 @@ public class DatosCat implements I_datosCat {
 		}
 	}
 
-
+	/**
+     * Método para llebar a cabo la búsqueda de una categoría (si existe o no)
+     * @param id (int) con el identificador de la categoría a analizar
+     */
 	public Categoria findById(int idCategorias) throws DAOException {
 		try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
 			String query = "SELECT * FROM CATEGORIAS WHERE IDCATEGORIAS=" + idCategorias;
@@ -87,6 +108,10 @@ public class DatosCat implements I_datosCat {
 		}
 	}
 
+	/**
+     * Método para modificar los parámetros de una categoría
+     * @param id (int) con el identificador de la categoría a modificar
+     */
 	public void modificarCategorias(int idCategorias) throws LecturaException, DAOException {
 		idCategorias = LecturaDatos.leerInt("Por favor, introduzca el ID de la categoría a modificar");
 		try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
@@ -98,53 +123,53 @@ public class DatosCat implements I_datosCat {
 	        	throw new DAOException("------------------Abre los ojos¡¡¡¡");
 	              }
 	 		  	//log.info("-----"+rs);
-	        } catch (SQLException se) {
+		} catch (SQLException se) {
 	 			se.printStackTrace();
 	 			System.out.println("---"+se.getSQLState());
 	 			System.out.println("---"+se.getErrorCode());
 	 			System.out.println("---"+se.getMessage());
 	            //throw new DAOException("Error finding employee in DAO", se);
+	    }
+	}
+	
+	/**
+	 * Método para llevar a cabo el listado de todas las categorías
+	 */
+	public void listadoCat() throws DAOException {
+		try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
+			String query = "SELECT * FROM CATEGORIAS";
+	        ResultSet rs = stmt.executeQuery(query);
+	        while (rs.next()) {
+	        	Categoria cate = new Categoria(rs.getInt("IDCATEGORIAS"), rs.getString("NOMBRECAT"));
+	            cate.imprimirCat();
 	        }
-		}
-		/*
-		 * Método para llevar a cabo el listado de todas las categorías
-		 */
-		public void listadoCat() throws DAOException {
-	        try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
-	            String query = "SELECT * FROM CATEGORIAS";
-	            ResultSet rs = stmt.executeQuery(query);
-
-	            while (rs.next()) {
-	                Categoria cate = new Categoria(rs.getInt("IDCATEGORIAS"), rs.getString("NOMBRECAT"));
-	                cate.imprimirCat();
-	            }
-	        } catch (SQLException se) {
+	     } catch (SQLException se) {
 	            // se.printStackTrace();
 	            throw new DAOException("Error para obtener el listado de las categorías" + se.getMessage(), se);
 	        }
 	    }
 		
-		/*
-		 * Método para realizar el listado de las películas por la categoría
-		 * @param (id (int) que indica el numero de la categoría para filtrar
-		 */ 
-		public void listadoPeliCat(int id) throws DAOException {
-	         try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
-	             String query = "SELECT * FROM PELICULAS";
-	             ResultSet rs = stmt.executeQuery(query);
-
-	             while (rs.next()) {
-	                 if(id==rs.getInt("CATEGORIA")) {
-	                     Peliculas peli = new Peliculas(rs.getInt("ID"), rs.getString("NOMBRE"), rs.getInt("ANIOESTRENO"), rs.getInt("CATEGORIA"), rs.getInt("VISUALIZACIONES"));
-	                     peli.imprimirPelicula();
-	                 }
-	          //log.info("Comprobando listado");
-	             }
-	         } catch (SQLException se) {
-	             // se.printStackTrace();
-	             throw new DAOException("Error para obtener el listado de las películas por la categoría" + id + ": " + se.getMessage(), se);
-	         }
-	     }
+	/**
+	* Método para realizar el listado de las películas por la categoría
+	* @param id (int) que indica el numero de la categoría para filtrar
+	*/ 
+	public void listadoPeliCat(int id) throws DAOException {
+		try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
+			String query = "SELECT * FROM PELICULAS";
+			ResultSet rs = stmt.executeQuery(query);
+			while (rs.next()) {
+				if(id==rs.getInt("CATEGORIA")) {
+					Peliculas peli = new Peliculas(rs.getInt("ID"), rs.getString("NOMBRE"), rs.getInt("ANIOESTRENO"), rs.getInt("CATEGORIA"), rs.getInt("VISUALIZACIONES"));
+	                peli.imprimirPelicula();
+	            }
+	        //log.info("Comprobando listado");
+	        }
+	    } catch (SQLException se) {
+	    	// se.printStackTrace();
+	        throw new DAOException("Error para obtener el listado de las películas por la categoría" + id + ": " + se.getMessage(), se);
+	    }
 	}
+
+}
 
 		
