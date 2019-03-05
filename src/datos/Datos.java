@@ -14,9 +14,9 @@ import org.apache.logging.log4j.Logger;
 public class Datos implements I_datos {
 	
 	private static final Logger log = LogManager.getLogger("Datos");
-	
+	//Se crea un método para dar de alta las películas y añadirlas a la base de datos.
 	@Override
-	public void altaPeliculas(Peliculas peli) throws DAOException {//es necesario actualizar este metodo.
+	public void altaPeliculas(Peliculas peli) throws DAOException {
 		try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()){
 			System.out.println("-------------------------------------------Errorrrrrrr");
 			String query = "INSERT INTO PELICULAS(NOMBRE, ANIOESTRENO, CATEGORIA) VALUES ('" + peli.getNombre()+"' ,"+peli.getAnioEstreno()+ " ,"+peli.getCategoria()+")";
@@ -35,6 +35,7 @@ public class Datos implements I_datos {
 		}
 		
 	}@Override
+	//Se crea un método para dar de baja las películas de la base de datos.
     public void bajaPeliculas(int id) throws DAOException {
         try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()) {
             Peliculas peli = (Peliculas) findById(id);
@@ -58,7 +59,7 @@ public class Datos implements I_datos {
         }
 	}
  
- // Find an Employee record using this ID
+ // Se utiliza un método para encontrar una película por su id
 
      public Peliculas findById(int id) throws DAOException {
          try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()) {
@@ -78,7 +79,7 @@ public class Datos implements I_datos {
  			return null;
          }
      }
-     //Se crea un método para encontrar los clientes po su id
+     //Se crea un método para encontrar los clientes por su id
      public Usuario findById2(int idClientes) throws DAOException {
          try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()) {
              String query = "SELECT * FROM CLIENTES WHERE IDCLIENTES=" + idClientes;
