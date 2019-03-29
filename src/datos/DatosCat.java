@@ -35,7 +35,7 @@ public class DatosCat implements I_datosCat {
      * @param objeto del tipo categoría: nombre (String)
      */
 	public void altaCategorias(Categoria cat) throws DAOException {// es necesario actualizar este metodo.
-		try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
+		try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()) {
 			String query = "INSERT INTO CATEGORIAS(NOMBRECAT) VALUES ('" + cat.getNombreCat()+"')";
 			log.info("-----" + query);
 			// da un error
@@ -66,7 +66,7 @@ public class DatosCat implements I_datosCat {
 			log.info("----------------------------La ID que quieres eliminar no existe");
 			throw new DAOException("Categoria id: " + idCategorias + " no existe para eliminarla.");
 		}
-		try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
+		try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()) {
 			log.info("-------------------------La conexion se ha realizado correctamente");
 			String query = "DELETE FROM CATEGORIAS WHERE IDCATEGORIAS=" + idCategorias;
 			log.info("-------------------------Query Creada");
@@ -89,7 +89,7 @@ public class DatosCat implements I_datosCat {
      * @param id (int) con el identificador de la categoría a analizar
      */
 	public Categoria findById(int idCategorias) throws DAOException {
-		try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
+		try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()) {
 			String query = "SELECT * FROM CATEGORIAS WHERE IDCATEGORIAS=" + idCategorias;
 			log.info("-----" + query);
 			ResultSet rs = stmt.executeQuery(query);
@@ -114,7 +114,7 @@ public class DatosCat implements I_datosCat {
      */
 	public void modificarCategorias(int idCategorias) throws LecturaException, DAOException {
 		idCategorias = LecturaDatos.leerInt("Por favor, introduzca el ID de la categoría a modificar");
-		try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
+		try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()) {
 			String query = null;
 			query = "UPDATE CATEGORIAS SET "
 			+ "nombreCat = '"+LecturaDatos.leerString("Introduzca el nombre de la categoría: ")
@@ -136,7 +136,7 @@ public class DatosCat implements I_datosCat {
 	 * Método para llevar a cabo el listado de todas las categorías
 	 */
 	public void listadoCat() throws DAOException {
-		try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
+		try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()) {
 			String query = "SELECT * FROM CATEGORIAS";
 	        ResultSet rs = stmt.executeQuery(query);
 	        while (rs.next()) {
@@ -154,7 +154,7 @@ public class DatosCat implements I_datosCat {
 	* @param id (int) que indica el numero de la categoría para filtrar
 	*/ 
 	public void listadoPeliCat(int id) throws DAOException {
-		try (Statement stmt = (Statement) ConexionBBDD.Conecta_BBDD().createStatement()) {
+		try (Statement stmt = (Statement) Conexion_BBDD_prueba.Conecta_BBDD().createStatement()) {
 			String query = "SELECT * FROM PELICULAS";
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {

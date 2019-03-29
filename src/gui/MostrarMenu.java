@@ -3,6 +3,7 @@ package gui;
 public class MostrarMenu {
 	public static void mostrarMenu() {
 
+		System.out.println();
 		System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
 		System.out.println("|||                "+    "····GESTIÓN MOVIEFLIX····" + "             |||");
 		System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
@@ -21,6 +22,7 @@ public class MostrarMenu {
         System.out.println("|||" + "            13. Listado de peliculas mas valoradas" + "    |||");
         System.out.println("|||" + "            14. Salir" + "                                 |||");
         System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+        System.out.println();
 	}
 
 }
